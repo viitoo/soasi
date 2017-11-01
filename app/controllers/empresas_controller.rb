@@ -1,24 +1,34 @@
 class EmpresasController < ApplicationController
   before_action :set_empresa, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Home", :root_path
+  add_breadcrumb "Empresas", :empresas_path
 
   # GET /empresas
   # GET /empresas.json
   def index
+    add_breadcrumb "index"
+
     @empresas = Empresa.all
   end
 
   # GET /empresas/1
   # GET /empresas/1.json
   def show
+    add_breadcrumb "Mostrar"
+
   end
 
   # GET /empresas/new
   def new
+    add_breadcrumb "Nuevo", new_empresa_path
+
     @empresa = Empresa.new
   end
 
   # GET /empresas/1/edit
   def edit
+    add_breadcrumb "Nuevo", edit_empresa_path
+
   end
 
   # POST /empresas
