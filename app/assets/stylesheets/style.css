@@ -6165,7 +6165,7 @@ li.home:before {
   position: absolute;
   left: 48%;
   top: 46%;
-  background: url("../../images/avatar/avatar-2.png") no-repeat center center;
+  background: url("/images/avatar/avatar-2.png") no-repeat center center;
   z-index: 1001;
 }
 
@@ -6639,7 +6639,7 @@ ul.side-nav.leftside-navigation li:not(.no-padding) a {
 }
 
 ul.side-nav.leftside-navigation li:not(.no-padding).user-details {
-  background: url("../../images/gallary/12.png") no-repeat center center;
+  background: url("/gallary/12.png") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7097,7 +7097,7 @@ Cards
 }
 
 #flight-card .card-content-bg {
-  background: url("../../images/gallary/3.png") no-repeat center center;
+  background: url("gallary/3.png") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7206,19 +7206,19 @@ Cards
 }
 
 .bg-image-1 {
-  background-image: url("../../images/cards/macbook.png");
+  background-image: url("/cards/macbook.png");
   width: 100%;
   background-size: cover;
 }
 
 .bg-image-2 {
-  background-image: url("../../images/cards/iphone.png");
+  background-image: url("/cards/iphone.png");
   width: 100%;
   background-size: cover;
 }
 
 .bg-image-3 {
-  background-image: url("../../images/cards/applewatch.png");
+  background-image: url("/cards/applewatch.png");
   width: 100%;
   background-size: cover;
 }

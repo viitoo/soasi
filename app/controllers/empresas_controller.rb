@@ -7,7 +7,6 @@ class EmpresasController < ApplicationController
   # GET /empresas.json
   def index
     add_breadcrumb "index"
-
     @empresas = Empresa.all
   end
 

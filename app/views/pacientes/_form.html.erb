@@ -1,0 +1,22 @@
+
+
+<%= simple_form_for paciente ,url: empresa_paciente_path, method: :put, remote: true  do |form| %>
+
+    <%= form.hidden_field :empresa_id, value: params[:empresa_id] %>
+    <%= form.input :primer_nombre  %>
+    <%= form.input :segundo_nombre %>
+    <%= form.input :primer_apellido%>
+    <%= form.input :segundo_apellido %>
+    <%= form.input :tipo_identificacion %>
+    <%= form.input :numero_identificacion  %>
+    <%= form.input :genero %>
+    <%= form.input :fecha_nac %>
+    <%= form.input :lugar_nacimiento%>
+    <%= form.input :telefono %>
+    <%= form.input :grupo_sangre %>
+    <%= form.input :edo_civil%>
+
+  <div class="actions">
+    <%= form.submit "guardar registros" %>
+  </div>
+<% end %>
