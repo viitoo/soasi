@@ -6023,7 +6023,7 @@ li.home:before {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url("/fonts/material-design-icons/MaterialIcons-Regular.ttf") format("truetype"), url("fonts/material-design-icons/MaterialIcons-Regular.woff2") format("woff2"), url("fonts/material-design-icons/MaterialIcons-Regular.woff") format("woff"), url("fonts/material-design-icons/MaterialIcons-Regular.eot");
+  src: local("Material Icons"), local("MaterialIcons-Regular"),url("/fonts/material-design-icons/MaterialIcons-Regular.ttf") format("truetype"), url("fonts/material-design-icons/MaterialIcons-Regular.woff2") format("woff2"), url("fonts/material-design-icons/MaterialIcons-Regular.woff") format("woff"), url("fonts/material-design-icons/MaterialIcons-Regular.eot");
 }
 
 .material-icons {
@@ -6639,7 +6639,7 @@ ul.side-nav.leftside-navigation li:not(.no-padding) a {
 }
 
 ul.side-nav.leftside-navigation li:not(.no-padding).user-details {
-  background: url("/gallary/12.png") no-repeat center center;
+  background: url('/images/12.png') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -6907,49 +6907,7 @@ ul.side-nav .collapsible-header.active:after {
   right: 70px;
 }
 
-/*----------------------------------------
-    Tables
-------------------------------------------*/
-.jsgrid-edit-row input[type="checkbox"], .jsgrid-insert-row input[type="checkbox"], .jsgrid-filter-row input[type="checkbox"], .jsgrid-alt-row input[type="checkbox"], .jsgrid-row input[type="checkbox"], .config-panel input[type=checkbox] {
-  position: relative !important;
-  left: 0 !important;
-  visibility: visible !important;
-}
 
-.jsgrid-grid-body {
-  height: auto !important;
-}
-
-.jsgrid-edit-row select {
-  display: block !important;
-}
-
-.jsgrid-insert-row select {
-  display: block !important;
-}
-
-.jsgrid-insert-row .select-wrapper .caret {
-  display: none !important;
-}
-
-.jsgrid-insert-row .select-wrapper .select-dropdown {
-  display: none !important;
-}
-
-#jsGrid-sorting {
-  height: 500px !important;
-  overflow: scroll !important;
-}
-
-#jsGrid-page {
-  height: 500px !important;
-  overflow: scroll !important;
-}
-
-#jsGrid-custom-row {
-  height: 500px !important;
-  overflow: scroll !important;
-}
 
 /*----------------------------------------
 Cards

@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+Paciente.destroy_all
+Empresa.destroy_all
+
+100.times do |index|
+  Empresa.create!(
+    nombre: Faker::Company.name,
+    ruc: Faker::Number.number(10),
+    ubicacion: Faker::Address.street_address,
+    telefono: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.safe_email
+  )
+end
+
+p "Created #{Empresa.count} empresas"
+

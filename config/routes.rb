@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :empleados
   resources :empresas do
+    get 'getjson'
     resources :pacientes
   end
   get 'home/index'

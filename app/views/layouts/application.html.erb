@@ -4,20 +4,36 @@
     <title>SoasiFinal</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <%#= javascript_pack_tag 'hello_vue' %>
   </head>
 
+
   <body>
-      <%= render "layouts/loader"%>
+      <%#= render "layouts/loader"%>
       <%= render "layouts/top"%>
 
       <div id="main">
           <div class="wrapper">
               <%= render "layouts/sidebar"%>
               <section id="content">
-              <%= render "layouts/content"%>
-            </section>
+                <!--  <div id="hello">
+                      <app></app>
+                    </div>
+
+
+                    <div id="lista">
+                      <ul>
+                        <li v-for="name in names" v-text="name "></li>
+
+                      </ul>
+
+                    </div>
+                  -->
+                <%= render "layouts/content"%>
+              </section>
             <%= render "layouts/footer" %>
 
           </div>
@@ -25,3 +41,4 @@
 
   </body>
 </html>
+

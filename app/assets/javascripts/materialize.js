@@ -14,8 +14,6 @@ if (typeof jQuery === 'undefined') {
   if (typeof require === 'function') {
     jQuery = $ = require('jquery');
     // Else use the dollar sign alias.
-  } else {
-    jQuery = $;
   }
 }
 ; /*

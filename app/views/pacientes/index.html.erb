@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Primer nombre</th>
@@ -34,7 +34,7 @@
         <td><%= paciente.grupo_sangre %></td>
         <td><%= paciente.edo_civil %></td>
         <td><%= link_to 'Show', empresa_paciente_path(params[:empresa_id],paciente) %></td>
-        <td><%#= link_to 'Edit', edit_paciente_path(paciente) %></td>
+        <td><%= link_to 'Edit', edit_empresa_paciente_path(params[:empresa_id],paciente.id) %></td>
         <td><%#= link_to 'Destroy', empresa_paciente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

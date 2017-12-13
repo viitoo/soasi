@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col s10 m6 l6">
+        <strong>Nombre:</strong>
+        <%= @empresa.nombre %>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @empresa.nombre %>
-</p>
+    </div>
+</div>
+
 
 <p>
   <strong>Ruc:</strong>
@@ -24,6 +27,12 @@
   <strong>Email:</strong>
   <%= @empresa.email %>
 </p>
+<div class="divider"></div>
 
-<%= link_to 'Edit', edit_empresa_path(@empresa) %> |
-<%= link_to 'Back', empresas_path %>
+<%= link_to edit_empresa_path(@empresa), class: "waves-effect waves-light btn gradient-45deg-indigo-light-blue" do %>
+<i class="material-icons left">settings_backup_restore</i>Volver
+
+<% end %>
+<%= link_to empresas_path , class: "waves-effect waves-light btn gradient-45deg-purple-deep-orange" do%>
+<i class="material-icons left">settings_backup_restore</i>Volver
+<% end %>

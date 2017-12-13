@@ -11,9 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require jquery-3.2.1.min
+//= require jquery
+//= require jquery-ui/core
+//= require jquery-ui/position
+//= require dataTables/jquery.dataTables
 //= require materialize
-//= requie plugins
-//= require custom-script
+//= require prism
+//= require plugins
+
+//= require_tree ./materialize-plugin/
 //= require_tree .
+

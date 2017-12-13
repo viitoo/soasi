@@ -1,8 +1,7 @@
 
 <%= render 'form', empresa: @empresa %>
-<br>
-<div class="col s12">
-    <%= link_to 'Back', empresas_path %>
-</div>
+<%= link_to empresas_path , class: "waves-effect waves-light btn gradient-45deg-purple-deep-orange" do%>
+<i class="material-icons left">settings_backup_restore</i>Volver
+<% end %>
 
 
