@@ -1,37 +1,67 @@
-<%= simple_form_for @empresa do |f| %>
+<%= javascript_pack_tag "form_empresa" %>
+<%= content_tag :div,
+    id: 'empresa-form',
+    data: {
+      empresa: empresa.to_json(except: [:created_at, :updated_at]),
+      pacientes_attributes: empresa.pacientes.to_json(except: [:empresa_id, :created_at, :updated_at]),
+    } do %>
 
+    <label> Nombre de la empresa</label>
+    <input type="text" v-model="empresa.nombre" />
+    <label>Ruc de la empresa</label>
+    <input type="text" v-model="empresa.ruc" />
+    <label>Numero Telefonico</label>
+    <input type="text" v-model="empresa.telefono" />
+    <label>Email</label>
+    <input type="text" v-model="empresa.email" />
+    <label for="direccion">Direccion</label>
+    <input type="text" v-model="empresa.ubicacion" />
+    <h4>Empleados </h4>
+    <div v-for="(paciente, index) in empresa.pacientes_attributes">
+        <label for="">Nombre </label>
+        <input type="text" v-model="paciente.primer_nombre" />
+        <button v-on:click="removePaciente(index)" class= "waves-effect waves-light btn-small "> Borrar </button>
+<hr>
+    </div>
+    <button v-on:click="addPaciente" class= "waves-effect waves-light btn btn-sm "> agregar  </button>
+
+  <% end %>
+<br />
+  <%#= simple_form_for @empresa do |f| %>
+<!--
 <div class="col s12">
 <div class="row">
   <div class="input-field col s6">
-      <%= f.input :nombre, input_html: { class: 'validate' } %>
+      <%#= f.input :nombre, input_html: { class: 'validate' } %>
   </div>
 
   <div class="input-field col s6">
-      <%= f.input :ruc , input_html: { class: 'validate' } %>
+      <%#= f.input :ruc , input_html: { class: 'validate' } %>
   </div>
 </div>
 <div class="row">
   <div class="input-field col s12">
-      <%= f.input :ubicacion, as: :text, input_html: { class: 'materialize-textarea' }   %>
+      <%#= f.input :ubicacion, as: :text, input_html: { class: 'materialize-textarea' }   %>
   </div>
 </div>
 <div class="row">
   <div class="input-field col s6">
-      <%= f.input :telefono, input_html: { class: 'validate' }  %>
+      <%#= f.input :telefono, input_html: { class: 'validate' }  %>
   </div>
 
   <div class="input-field col s6">
-      <%= f.input :email, input_html: { class: 'validate' }  %>
+      <%#= f.input :email, input_html: { class: 'validate' }  %>
   </div>
 </div>
 <div class="row">
     <div class="card-action">
-        <%= f.button :submit ,class: "btn gradient-45deg-light-blue-cyan gradient-shadow ", data:{"disable-with": "Salvando"}%>
+        <%#= f.button :submit ,class: "btn gradient-45deg-light-blue-cyan gradient-shadow ", data:{"disable-with": "Salvando"}%>
     </div>
 </div>
 <br />
 
 
 </div>
-<% end %>
+<%# end %>
 
+-->

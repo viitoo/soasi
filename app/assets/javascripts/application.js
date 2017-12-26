@@ -14,11 +14,9 @@
 //= require jquery
 //= require jquery-ui/core
 //= require jquery-ui/position
-//= require dataTables/jquery.dataTables
 //= require materialize
 //= require prism
 //= require plugins
-
+//= require turbolinks
 //= require_tree ./materialize-plugin/
 //= require_tree .
-

@@ -1,33 +1,30 @@
 class EmpresasController < ApplicationController
-  before_action :set_empresa, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb "Home", :root_path
-  add_breadcrumb "Empresas", :empresas_path
+  before_action :set_empresa, only: %i[show edit update destroy]
+  add_breadcrumb 'Home', :root_path
+  add_breadcrumb 'Empresas', :empresas_path
   skip_before_action :verify_authenticity_token
 
   def getjson
-    render json: Empresa.all.order("created_at ASC")
-    .where("nombre LIKE ?", "%#{params[:nombre]}%")
-    .where("ruc LIKE ?", "%#{params[:ruc]}%")
+    render json: Empresa.find_by_sql(['SELECT * FROM empresas WHERE nombre LIKE ? OR ruc LIKE ?', "%#{params[:nombre]}%", "%#{params[:ruc]}%"])
   end
 
   def index
-    add_breadcrumb "index"
-    @empresas = Empresa.all
+    add_breadcrumb 'index'
+    # @empresas = Empresa.paginate(:page => params[:page],per_page: 30)
   end
 
   def show
-    add_breadcrumb "Mostrar"
+    add_breadcrumb 'Mostrar'
   end
 
   def new
-    add_breadcrumb "Nuevo", new_empresa_path
+    add_breadcrumb 'Nuevo', new_empresa_path
 
     @empresa = Empresa.new
   end
 
   def edit
-    add_breadcrumb "Nuevo", edit_empresa_path
-
+    add_breadcrumb 'Nuevo', edit_empresa_path
   end
 
   def create
@@ -65,11 +62,14 @@ class EmpresasController < ApplicationController
   end
 
   private
-    def set_empresa
-      @empresa = Empresa.find(params[:id])
-    end
 
-    def empresa_params
-      params.require(:empresa).permit(:nombre, :ruc, :ubicacion, :telefono, :email)
-    end
+  def set_empresa
+    @empresa = Empresa.find(params[:id])
+  end
+
+  def empresa_params
+    params.require(:empresa).permit(:nombre, :ruc, :ubicacion, :telefono, :email, pacientes_attributes:
+     [:id, :primer_nombre, :segundo_nombre, :primer_apellido, :segundo_apellido, :tipo_identificacion,
+      :numero_identificacion,:genero, :fecha_nac, :lugar_nacimiento, :telefono, :grupo_sangre, :edo_civil , :_destroy])
+  end
 end

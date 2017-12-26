@@ -17,7 +17,7 @@
     "use strict";
 
     var window_width = $(window).width();
-    
+
 
     // Search class for focus
     $('.header-search-input').focus(
@@ -111,18 +111,18 @@
     });
 
     // Perfect Scrollbar
-    $('select').not('.disabled').material_select();
-    var leftnav = $(".page-topbar").height();
-    var leftnavHeight = window.innerHeight - leftnav;
-    if (!$('#slide-out.leftside-navigation').hasClass('native-scroll')) {
-      $('.leftside-navigation').perfectScrollbar({
-        suppressScrollX: true
-      });
-    }
-    var righttnav = $("#chat-out").height();
-    $('.rightside-navigation').perfectScrollbar({
-      suppressScrollX: true
-    });
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Fullscreen
     function toggleFullScreen() {

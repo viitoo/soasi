@@ -34,59 +34,25 @@
 
  import Vue from 'vue/dist/vue.esm'
  import App from '../app.vue'
- import Tabla from '../lista.vue'
- document.addEventListener('DOMContentLoaded', () => {
+ import VueGoodTable from 'vue-good-table';
+ import VueResource from 'vue-resource'
 
+ Vue.use(VueResource);
+ Vue.use(VueGoodTable);
+
+document.addEventListener('DOMContentLoaded', () => {
 
  var app =  new Vue({
     el: '#hello',
-    data: {
-      message: "hello word"
-    }, components: { App }
-
+      data: {
+      empresas: [],
+      empresa: {
+        nombre: '',
+        ruc: '',
+        telefono: '',
+        email: '',
+      },
+      errors: {},
+      },components: { App },
   })
-
-
- var lista =  new Vue({
-  el: '#lista',
-  data: {
-    names: ['victor', 'roger']
-  },
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //  var app = new Vue({
- //    el: '#hello',
- //    data: {
- //      message: "you saving a form ?"
-//
- //    },
- //    components: { App },
- //})
-
-// var app2 = new Vue({
-//  el: '#tabla',
-//  data: {
-//    message: 'You loaded this page on ' + new Date().toLocaleString()
-//  },
-//  components: { Tabla }
-//})
-
 })

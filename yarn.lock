@@ -1506,6 +1506,10 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+date-fns@^2.0.0-alpha.3:
+  version "2.0.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-alpha.7.tgz#245ad16f95764eababfb2c0a41fd5d033c20e57a"
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -5208,6 +5212,12 @@ vm-browserify@0.0.4:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
+
+vue-good-table@^1.17.0:
+  version "1.17.1"
+  resolved "https://registry.yarnpkg.com/vue-good-table/-/vue-good-table-1.17.1.tgz#203ae70a8a553a3aeed4ec0c7712b7690e8c8208"
+  dependencies:
+    date-fns "^2.0.0-alpha.3"
 
 vue-hot-reload-api@^2.2.0:
   version "2.2.3"

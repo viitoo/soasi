@@ -14,22 +14,24 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem "breadcrumbs_on_rails"
 gem 'rack-cors', :require => 'rack/cors'
-
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'webpacker', github: 'rails/webpacker'
-gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'
-gem 'will_paginate'
-gem 'jquery-ui-themes'
+gem 'jquery-rails'
+
+#gem 'will_paginate'
+#gem 'jquery-ui-themes'
 gem "font-awesome-rails"
+gem 'bullet', group: 'development'
+gem 'rollbar'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-
+  gem 'meta_request'
 end
 
 group :development do

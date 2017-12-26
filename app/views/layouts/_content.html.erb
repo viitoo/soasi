@@ -13,7 +13,17 @@
                     <%= render_breadcrumbs :separator => ' / ' %>
                 </ol>
               </div>
-
+              <div class="col s10 m6 l6">
+                <h5 class="breadcrumbs-title"></h5>
+                <div class="breadcrumbs">
+                    <p align="right">
+                      <% if params[:action] == 'index'  %>
+                        <%= link_to  "/#{controller_name}/new" ,class: "waves-effect waves-light  btn gradient-45deg-light-blue-cyan" do %>
+                        <i class="fa fa-plus " aria-hidden="true"></i> Agregar <%= "#{controller_name}" %>
+                        <% end %>
+                      <% end %>
+                    </div>
+              </div>
           </div>
           </div>
         </div>

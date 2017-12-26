@@ -4,7 +4,7 @@ class EmpleadosController < ApplicationController
   # GET /empleados
   # GET /empleados.json
   def index
-    @empleados = Empleado.all
+    @empleados = Empleado.find_by_sql("select * from empleados")
   end
 
   # GET /empleados/1
