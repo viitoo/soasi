@@ -1,58 +1,43 @@
-/* eslint no-console: 0 */
-// Run this example by adding <%= javascript_pack_tag 'hello_vue' %> (and
-// <%= stylesheet_pack_tag 'hello_vue' %> if you set extractStyles to true
-// in config/webpack/loaders/vue.js) to the head of your layout file,
-// like app/views/layouts/application.html.erb.
-// All it does is render <div>Hello Vue</div> at the bottom of the page.
-
-//import Vue from 'vue'
-//import App from '../app.vue'
-//
-//document.addEventListener('DOMContentLoaded', () => {
-//  document.body.appendChild(document.createElement('hello'))
-//  const app = new Vue({
-//    render: h => h(App)
-//  }).$mount('hello')
-//
-//  console.log(app)
-//})
-
-
-// The above code uses Vue without the compiler, which means you cannot
-// use Vue to target elements in your existing html templates. You would
-// need to always use single file components.
-// To be able to target elements in your existing html/erb templates,
-// comment out the above code and uncomment the below
-// Add <%= javascript_pack_tag 'hello_vue' %> to your layout
-// Then add this markup to your html template:
-//
-// <div id='hello'>
-//   {{message}}
-//   <app></app>
-// </div>
-
-
  import Vue from 'vue/dist/vue.esm'
  import App from '../app.vue'
- import VueGoodTable from 'vue-good-table';
+ import VueGoodTable from 'vue-good-table'
  import VueResource from 'vue-resource'
+ //import TurbolinksAdapter from 'vue-turbolinks'
 
- Vue.use(VueResource);
- Vue.use(VueGoodTable);
+ Vue.use(VueResource)
+ Vue.use(VueGoodTable)
+ //Vue.use(TurbolinksAdapter)
 
+//function destroyVue() {
+//  this.destroy()
+//  document.removeEventListener('turbolinks:before-cache', destroyVue)
+//}
 document.addEventListener('DOMContentLoaded', () => {
-
- var app =  new Vue({
-    el: '#hello',
-      data: {
+//document.addEventListener('turbolinks:load', () => {
+    var element = document.getElementById("hello")
+    if (element != null) { }
+    var app =  new Vue({
+    el: element,
+    data: {
       empresas: [],
       empresa: {
         nombre: '',
         ruc: '',
         telefono: '',
         email: '',
-      },
-      errors: {},
-      },components: { App },
+      }
+    },
+    components: { App },
+
+  //  beforeMount: function() {
+  //    this.$originalElement = this.$el.outerHTML
+  //    document.addEventListener('turbolinks:before-cache', destroyVue.bind(this.$originalElement))
+  //  },
+ //   destroyed: function() {
+ //           this.$el.outerHTML = this.$originalElement
+ //       },
+
+
+
   })
 })

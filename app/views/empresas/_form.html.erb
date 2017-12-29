@@ -20,12 +20,15 @@
     <div v-for="(paciente, index) in empresa.pacientes_attributes">
         <label for="">Nombre </label>
         <input type="text" v-model="paciente.primer_nombre" />
-        <button v-on:click="removePaciente(index)" class= "waves-effect waves-light btn-small "> Borrar </button>
-<hr>
+        <button v-on:click="removePaciente(index)" class= "waves-effect waves-light btn "> Borrar </button>
+    <hr>
     </div>
     <button v-on:click="addPaciente" class= "waves-effect waves-light btn btn-sm "> agregar  </button>
+    <button v-on:click="saveEmpresa" class= "waves-effect waves-light btn btn-sm ">Guardar  </button>
 
   <% end %>
+
+
 <br />
   <%#= simple_form_for @empresa do |f| %>
 <!--

@@ -17,6 +17,5 @@
 //= require materialize
 //= require prism
 //= require plugins
-//= require turbolinks
 //= require_tree ./materialize-plugin/
 //= require_tree .
