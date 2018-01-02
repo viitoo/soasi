@@ -1,19 +1,27 @@
 import Vue from 'vue/dist/vue.esm'
 import VueResource from 'vue-resource'
-
+import es from 'vee-validate/dist/locale/es'
+import VeeValidate, { Validator } from 'vee-validate'
 Vue.use(VueResource)
+Validator.localize('es', es)
+Vue.use(VeeValidate)
+
 document.addEventListener('DOMContentLoaded', () => {
   Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   var element =  document.getElementById("empresa-form")
   if (element != null){
+    var id = element.dataset.id
     var empresa = JSON.parse(element.dataset.empresa)
     var pacientes_attributes = JSON.parse(element.dataset.pacientesAttributes)
     pacientes_attributes.forEach(function(paciente)  { paciente._destroy = null })
-    empresa.pacientes_attributes = pacientes_attributes
+    empresa.pacientes_attributes = pacientes_attributes;
     var app =  new Vue({
       el:  element,
+
       data: function(){
-        return {empresa: empresa}
+        return {id: id , empresa: empresa,
+        errores: {}
+      }
       },
       methods:{
         addPaciente: function(){
@@ -34,20 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
             _destroy: null
           })
         },
-        //saveEmpresa: function(){
-        //   console.log("algo aqui")
-        //},
+
         saveEmpresa: function(){
-        if (this.empresa.id == null) {//crea una nueva empresa
-          this.$http.post('/empresas', {empresa: this.empresa}).then(response => {
+        if (this.id == null) {//crea una nueva empresa
+          this.$http.post('/empresas', {empresa: this.empresa}).then((response) => {
             window.location =`/empresas/${response.body.id}`
-          },response =>{
+          },(response) =>{
             console.log(response)
+            this.errores = response.body
           })
         } else{//edita una empresa existente
-          this.$http.put(`/empresas/${this.empresa.id}`, {empresa: this.empresa}).then(response => {
+          this.$http.put(`/empresas/${this.id}`, {empresa: this.empresa}).then((response) => {
             window.location =`/empresas/${response.body.id}`
-          },response =>{
+          },(response) =>{
+            this.errores = response.body
             console.log(response)
           })
         }
@@ -58,7 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         removePaciente: function(index){
-          this.empresa.pacientes_attributes.splice(index,1)
+          var paciente =  this.empresa.pacientes_attributes[index]
+          if (paciente.id == null) {
+            this.empresa.pacientes_attributes.splice(index,1)
+          } else{
+            this.empresa.pacientes_attributes[index]._destroy = "1"
+          }
+        },
+
+        undoRemove: function(index){
+          this.empresa.pacientes_attributes[index]._destroy = null
         },
 
 

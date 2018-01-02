@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails soasi_final: production" uuid="dfed29d2-0928-41e8-908e-36750e0f5627">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>soasi_final</user-name>
+    </data-source>
+    <data-source name="Rails soasi_final: development" uuid="5f5d8a9a-2ad4-4c0e-8fda-837b1995435a">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>pguser</user-name>
+    </data-source>
+    <data-source name="Rails soasi_final: test" uuid="81fa5a7f-a7e9-49fe-8672-224c11c82ff5">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>pguser</user-name>
+    </data-source>
+    <data-source name="postgres@localhost" uuid="161675aa-5be6-4f2a-9a1b-4f3dd15eed2d">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>pguser</user-name>
+    </data-source>
+  </component>
+</project>

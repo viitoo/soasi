@@ -1,70 +1,76 @@
 <%= javascript_pack_tag "form_empresa" %>
-<%= content_tag :div,
+
+    <%= content_tag :div,
     id: 'empresa-form',
     data: {
-      empresa: empresa.to_json(except: [:created_at, :updated_at]),
-      pacientes_attributes: empresa.pacientes.to_json(except: [:empresa_id, :created_at, :updated_at]),
-    } do %>
+        id: empresa.id,
+        empresa: empresa.to_json(except: [:id, :created_at, :updated_at]),
+        pacientes_attributes: empresa.pacientes.to_json(except: [:empresa_id, :created_at, :updated_at]),
+     } do %>
+        <div v-if="!Object.keys(errores).length == 0">
+            <em> Han ocurrido algunos errores que evitan el guardado:</em>
+        </div>
+        <div v-for="value, key in errores">
+            <div id="card-alert" class="card red">
+                <div class="card-content white-text">
+                    <transition>
+                        <p><i class="fa fa-ban"></i> <b>{{key.toUpperCase()}} {{ value[0].toUpperCase() }}</b></p>
+                    </transition>
+                </div>
+                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        </div>
+        <div class="input-field">
+            <label> Nombre de la empresa</label>
+            <input type="text"  v-model="empresa.nombre" v-validate="'required|alpha'" name="empresa_nombre"  id="empresa_nombre"  data-vv-as="Nombre de la empresa" />
+            <span v-if="errors.has('empresa_nombre')"  class="red-text-error ">
 
-    <label> Nombre de la empresa</label>
-    <input type="text" v-model="empresa.nombre" />
-    <label>Ruc de la empresa</label>
-    <input type="text" v-model="empresa.ruc" />
-    <label>Numero Telefonico</label>
-    <input type="text" v-model="empresa.telefono" />
-    <label>Email</label>
-    <input type="text" v-model="empresa.email" />
-    <label for="direccion">Direccion</label>
-    <input type="text" v-model="empresa.ubicacion" />
-    <h4>Empleados </h4>
-    <div v-for="(paciente, index) in empresa.pacientes_attributes">
-        <label for="">Nombre </label>
-        <input type="text" v-model="paciente.primer_nombre" />
-        <button v-on:click="removePaciente(index)" class= "waves-effect waves-light btn "> Borrar </button>
-    <hr>
-    </div>
-    <button v-on:click="addPaciente" class= "waves-effect waves-light btn btn-sm "> agregar  </button>
-    <button v-on:click="saveEmpresa" class= "waves-effect waves-light btn btn-sm ">Guardar  </button>
+                {{ errors.first('empresa_nombre') }}
+            </span>
+        </div>
+        <div class="input-field">
+                <label>Ruc de la empresa</label>
+            <input type="text"  v-model="empresa.ruc" />
+        </div>
+        <div class="input-field">
+                <label>Numero Telefonico</label>
+            <input type="text" v-model="empresa.telefono" />
+        </div>
+        <div class="input-field">
+                <label>Email</label>
+            <input type="text"  v-model="empresa.email" v-validate="'required|email'" name="empresa[email" />
+            <span v-if="errors.has('empresa_email')">
+                {{ errors.first('empresa_email') }}
+            </span>
 
-  <% end %>
+        </div>
+        <div class="input-field">
+                <label for="direccion">Direccion</label>
+            <input type="text" v-model="empresa.ubicacion" />
+        </div>
 
+        <!--EMPLEADOS -->
+        <h4>Empleados </h4>
+        <div v-for="(paciente, index) in empresa.pacientes_attributes">
+            <div v-if="paciente._destroy == '1'">
+                El paciente
+                <b>{{ paciente.primer_nombre }}</b> fue removido
+                <button v-on:click="undoRemove(index)" class="waves-effect waves-light btn btn-sm ">
+                    Deshacer</button>
+            </div>
+            <div v-else>
+                <label for="">Nombre </label>
+                <input type="text" v-model="paciente.primer_nombre" />
+                <button v-on:click="removePaciente(index)" class="waves-effect waves-light btn "> Borrar </button>
+            </div>
+            <hr>
+        </div>
+        <button v-on:click="addPaciente" class="waves-effect waves-light btn btn-sm "> Agregar </button>
+        <button v-on:click="saveEmpresa" :disabled="errors.any()" class="waves-effect waves-light btn btn-sm "> Guardar </button>
 
-<br />
-  <%#= simple_form_for @empresa do |f| %>
-<!--
-<div class="col s12">
-<div class="row">
-  <div class="input-field col s6">
-      <%#= f.input :nombre, input_html: { class: 'validate' } %>
-  </div>
-
-  <div class="input-field col s6">
-      <%#= f.input :ruc , input_html: { class: 'validate' } %>
-  </div>
-</div>
-<div class="row">
-  <div class="input-field col s12">
-      <%#= f.input :ubicacion, as: :text, input_html: { class: 'materialize-textarea' }   %>
-  </div>
-</div>
-<div class="row">
-  <div class="input-field col s6">
-      <%#= f.input :telefono, input_html: { class: 'validate' }  %>
-  </div>
-
-  <div class="input-field col s6">
-      <%#= f.input :email, input_html: { class: 'validate' }  %>
-  </div>
-</div>
-<div class="row">
-    <div class="card-action">
-        <%#= f.button :submit ,class: "btn gradient-45deg-light-blue-cyan gradient-shadow ", data:{"disable-with": "Salvando"}%>
-    </div>
-</div>
-<br />
+        <% end %>
 
 
-</div>
-<%# end %>
-
--->
+            <br />

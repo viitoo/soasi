@@ -3,15 +3,22 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
+    "axios": "^0.17.1",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "coffeescript": "1.12.7",
     "jquery": "^3.2.1",
+    "simple-vue-validator": "^0.14.2",
+    "sweetalert2": "^7.3.0",
+    "vee-validate": "^2.0.0",
     "vue": "^2.5.3",
+    "vue-axios": "^2.0.2",
     "vue-good-table": "^1.17.0",
     "vue-loader": "^13.5.0",
-    "vue-template-compiler": "^2.5.3"
+    "vue-template-compiler": "^2.5.3",
+    "vuelidation": "^1.1.0",
+    "vuetify": "^0.17.6"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.9.4"

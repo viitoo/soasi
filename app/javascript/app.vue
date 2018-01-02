@@ -8,17 +8,16 @@
   :globalSearch="true"
   :paginate="true"
   :sortable="true"
+
   nextText='Siguiente'
   prevText='Previo'
   allText= "Todos"
   ofText="de"
   rowsPerPageText="Regismtros por fila"
   globalSearchPlaceholder	= "Buscador de datos"
-
-
   styleClass="highlight">
   <div slot="emptystate">
-    <center>Lo sentimos tu busqueda no obtuvo resultados, intenta con otro criterio de busqueda</center>
+    <p align="center">Lo sentimos tu busqueda no obtuvo resultados, intenta con otro criterio de busqueda</p>
   </div>
   <template slot="table-row-after" slot-scope="props">
     <td>

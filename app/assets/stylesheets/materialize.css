@@ -5,6 +5,8 @@
 
 .materialize-red-text {
   color: #e51c23 !important;
+  font-size:5px;
+
 }
 
 .materialize-red.lighten-5 {
@@ -57,6 +59,7 @@
 
 .materialize-red.darken-2 {
   background-color: #b9151b !important;
+  font-size: 4px;
 }
 
 .materialize-red-text.text-darken-2 {
@@ -6065,7 +6068,7 @@ textarea.materialize-textarea {
   height: 3rem;
   width: 100%;
   font-size: 1rem;
-  margin: 0 0 20px 0;
+  margin: 0 0 2px 0;
   padding: 0;
   box-shadow: none;
   box-sizing: content-box;
@@ -7016,7 +7019,7 @@ select {
   line-height: 3rem;
   width: 100%;
   font-size: 1rem;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   padding: 0;
   display: block;
   user-select: none;

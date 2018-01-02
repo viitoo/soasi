@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);
 .materialize-red {
   background-color: #e51c23 !important;
+  font-size: 14px;
 }
 
 .materialize-red-text {
@@ -61,6 +62,8 @@
 
 .materialize-red-text.text-darken-2 {
   color: #b9151b !important;
+  font-size: 6px;
+
 }
 
 .materialize-red.darken-3 {
@@ -82,9 +85,14 @@
 .red {
   background-color: #F44336 !important;
 }
+.red-text-error {
+  color: #F44336 !important;
+  font-size: 11px;
+}
 
 .red-text {
   color: #F44336 !important;
+
 }
 
 .red.lighten-5 {

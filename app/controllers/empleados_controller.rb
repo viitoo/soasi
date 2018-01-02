@@ -32,6 +32,7 @@ class EmpleadosController < ApplicationController
         format.json { render :show, status: :created, location: @empleado }
       else
         format.html { render :new }
+        #render  :json => {errors:  @empleado.errors}, status: 422
         format.json { render json: @empleado.errors, status: :unprocessable_entity }
       end
     end
