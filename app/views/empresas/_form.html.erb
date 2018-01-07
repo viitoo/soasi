@@ -22,35 +22,53 @@
                 </button>
             </div>
         </div>
-        <div class="input-field">
-            <label> Nombre de la empresa</label>
-            <input type="text"  v-model="empresa.nombre" v-validate="'required|alpha'" name="empresa_nombre"  id="empresa_nombre"  data-vv-as="Nombre de la empresa" />
+    <div class="row">
+        <div class="input-field col s6">
+            <input type="text" placeholder="Empresa Ejemplo C.A (ejemplo)"  v-model="empresa.nombre" v-validate="{required:true, regex: /[a-zA-Z0-9 -,.()]$/}" name="empresa_nombre"  id="empresa_nombre"  data-vv-as="Nombre de la empresa" />
             <span v-if="errors.has('empresa_nombre')"  class="red-text-error ">
+                    {{ errors.first('empresa_nombre') }}
+                </span>
+                <label> Nombre de la empresa</label>
 
-                {{ errors.first('empresa_nombre') }}
+        </div>
+
+        <div class="input-field col s6">
+            <label>Ruc de la empresa</label>
+            <input type="text" placeholder="1760001550001 (ejemplo)"  v-model="empresa.ruc" data-vv-as="RUC de la empresa" name="empresa_ruc"  v-validate="'required|numeric'"/>
+            <span v-if="errors.has('empresa_ruc')"  class="red-text-error ">
+                {{ errors.first('empresa_ruc') }}
             </span>
         </div>
-        <div class="input-field">
-                <label>Ruc de la empresa</label>
-            <input type="text"  v-model="empresa.ruc" />
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <label>Numero Telefonico</label>
+            <input type="text" placeholder="0056113368551 (ejemplo)" v-model="empresa.telefono" data-vv-as="Telefono de la empresa" name="empresa_telefono" v-validate="'required|numeric'"/>
+            <span v-if="errors.has('empresa_telefono')"  class="red-text-error ">
+                    {{ errors.first('empresa_telefono') }}
+            </span>
         </div>
-        <div class="input-field">
-                <label>Numero Telefonico</label>
-            <input type="text" v-model="empresa.telefono" />
-        </div>
-        <div class="input-field">
-                <label>Email</label>
-            <input type="text"  v-model="empresa.email" v-validate="'required|email'" name="empresa[email" />
-            <span v-if="errors.has('empresa_email')">
+
+        <div class="input-field col s6">
+            <label>Email</label>
+            <input type="text" placeholder="correo@empresa.com (ejemplo)" v-model="empresa.email" v-validate="'required|email'" name="empresa_email" data-vv-as="Email de la empresa" name="empresa_email">
+            <i v-show="errors.has('email')" class="fa fa-warning"></i>
+
+            <span v-if="errors.has('empresa_email')"  class="red-text-error">
                 {{ errors.first('empresa_email') }}
             </span>
 
         </div>
-        <div class="input-field">
-                <label for="direccion">Direccion</label>
-            <input type="text" v-model="empresa.ubicacion" />
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <label for="direccion">Direccion</label>
+            <input type="text" placeholder="Edificio Seven, Oficina 01 , Calle 1 , Capital (ejemplo)" v-model="empresa.ubicacion" v-validate="{required:true, regex: /[a-zA-Z0-9 -,.()]$/}" data-vv-as="Direccion de la empresa" name="empresa_direccion"   />
+            <span v-if="errors.has('empresa_direccion')"  class="red-text-error">
+                    {{ errors.first('empresa_direccion') }}
+                </span>
         </div>
-
+    </div>
         <!--EMPLEADOS -->
         <h4>Empleados </h4>
         <div v-for="(paciente, index) in empresa.pacientes_attributes">

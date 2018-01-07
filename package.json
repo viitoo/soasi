@@ -16,6 +16,7 @@
     "vue-axios": "^2.0.2",
     "vue-good-table": "^1.17.0",
     "vue-loader": "^13.5.0",
+    "vue-notifyjs": "^0.3.0",
     "vue-template-compiler": "^2.5.3",
     "vuelidation": "^1.1.0",
     "vuetify": "^0.17.6"

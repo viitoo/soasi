@@ -15,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem "breadcrumbs_on_rails"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
+#gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'webpacker', github: 'rails/webpacker'
 gem 'jquery-ui-rails'

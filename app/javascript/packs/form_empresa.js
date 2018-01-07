@@ -2,10 +2,14 @@ import Vue from 'vue/dist/vue.esm'
 import VueResource from 'vue-resource'
 import es from 'vee-validate/dist/locale/es'
 import VeeValidate, { Validator } from 'vee-validate'
+import Notify from 'vue-notifyjs'
+
+
+
 Vue.use(VueResource)
 Validator.localize('es', es)
 Vue.use(VeeValidate)
-
+Vue.use(Notify)
 document.addEventListener('DOMContentLoaded', () => {
   Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   var element =  document.getElementById("empresa-form")
@@ -42,17 +46,27 @@ document.addEventListener('DOMContentLoaded', () => {
             _destroy: null
           })
         },
+        addNotification: function(message) {
+          this.$notify({
+            message: message,
+            horizontalAlign: "top",
+            verticalAlign:" right",
+            type: "warning"
+          })
+        },
 
         saveEmpresa: function(){
         if (this.id == null) {//crea una nueva empresa
-          this.$http.post('/empresas', {empresa: this.empresa}).then((response) => {
+          this.$http.post('/empresas', {empresa: this.empresa}).then(response => {
             window.location =`/empresas/${response.body.id}`
+            this.addNotification("Empresa guardad exitosamente")
           },(response) =>{
             console.log(response)
             this.errores = response.body
           })
         } else{//edita una empresa existente
-          this.$http.put(`/empresas/${this.id}`, {empresa: this.empresa}).then((response) => {
+          this.$http.put(`/empresas/${this.id}`, {empresa: this.empresa}).then(response => {
+            this.addNotification("Empresa guardada exitosamente"),
             window.location =`/empresas/${response.body.id}`
           },(response) =>{
             this.errores = response.body

@@ -5281,6 +5281,10 @@ vue-loader@^13.5.0:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
+vue-notifyjs@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/vue-notifyjs/-/vue-notifyjs-0.3.0.tgz#943ff8a657106010ca499144e9309f6c427a779d"
+
 vue-style-loader@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-3.0.3.tgz#623658f81506aef9d121cdc113a4f5c9cac32df7"
