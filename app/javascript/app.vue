@@ -8,14 +8,13 @@
   :globalSearch="true"
   :paginate="true"
   :sortable="true"
-
   nextText='Siguiente'
   prevText='Previo'
   allText= "Todos"
   ofText="de"
-  rowsPerPageText="Regismtros por fila"
-  globalSearchPlaceholder	= "Buscador de datos"
-  styleClass="highlight">
+  rowsPerPageText="Registros por fila"
+  globalSearchPlaceholder	= "BUSCAR REGISTRO"
+  styleClass="table">
   <div slot="emptystate">
     <p align="center">Lo sentimos tu busqueda no obtuvo resultados, intenta con otro criterio de busqueda</p>
   </div>
@@ -35,7 +34,7 @@
   </template>
   <template slot="table-row" slot-scope="props">
     <td>{{ props.row.nombre }}</td>
-    <td class="fancy">{{ props.row.ruc }}</td>
+    <td>{{ props.row.ruc }}</td>
     <td>{{ props.formattedRow.telefono }}</td>
     <td>{{ props.row.email }}</td>
   </template>
@@ -54,7 +53,7 @@ function Get(yourUrl){
 }
 
 
-var json_obj = JSON.parse(Get('http://localhost:3000/empresas/1/getjson'));
+var json_obj = JSON.parse(Get('/empresas/1/getjson'));
 
 export default {
   name: 'tablaEmpresa',

@@ -2616,7 +2616,7 @@ body.layout-semi-dark .footer-copyright {
 
 #main {
   min-height: calc(100% - 100px);
-  padding-left: 200px;
+  padding-left: 240px;
   -webkit-transition: .3s ease all;
   -o-transition: .3s ease all;
   -moz-transition: .3s ease all;
@@ -6500,7 +6500,7 @@ nav ul li.no-hover:hover {
 }
 
 .side-nav {
-  width: 200px;
+  width: 240px;
   -webkit-transition: .3s ease all;
   -o-transition: .3s ease all;
   -moz-transition: .3s ease all;

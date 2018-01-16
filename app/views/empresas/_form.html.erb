@@ -1,5 +1,6 @@
 <%= javascript_pack_tag "form_empresa" %>
 
+<div id="form_empresa">
     <%= content_tag :div,
     id: 'empresa-form',
     data: {
@@ -23,72 +24,154 @@
             </div>
         </div>
     <div class="row">
-        <div class="input-field col s6">
-            <input type="text" placeholder="Empresa Ejemplo C.A (ejemplo)"  v-model="empresa.nombre" v-validate="{required:true, regex: /[a-zA-Z0-9 -,.()]$/}" name="empresa_nombre"  id="empresa_nombre"  data-vv-as="Nombre de la empresa" />
-            <span v-if="errors.has('empresa_nombre')"  class="red-text-error ">
+        <div class="col s6">
+                <label> Nombre de la empresa</label>
+                <b-field label=""  >
+                    <b-input v-model="empresa.nombre" placeholder="Empresa la Ponderosa C.A.(ejemplo)" v-validate="{required:true, regex: /[a-zA-Z0-9 -,.()]$/}" name="empresa_nombre"  id="empresa_nombre"  data-vv-as="Nombre de la empresa"></b-input>
+                </b-field>
+                <span v-if="errors.has('empresa_nombre')"  class="red-text-error ">
                     {{ errors.first('empresa_nombre') }}
                 </span>
-                <label> Nombre de la empresa</label>
-
         </div>
-
-        <div class="input-field col s6">
+        <div class=" col s6">
             <label>Ruc de la empresa</label>
-            <input type="text" placeholder="1760001550001 (ejemplo)"  v-model="empresa.ruc" data-vv-as="RUC de la empresa" name="empresa_ruc"  v-validate="'required|numeric'"/>
+            <b-field>
+                <b-input placeholder="1760001550001 (ejemplo)"  v-model="empresa.ruc" data-vv-as="RUC de la empresa" name="empresa_ruc"  v-validate="'required|numeric'"></b-input>
+            </b-field>
             <span v-if="errors.has('empresa_ruc')"  class="red-text-error ">
-                {{ errors.first('empresa_ruc') }}
+                    {{ errors.first('empresa_ruc') }}
             </span>
         </div>
     </div>
-    <div class="row">
-        <div class="input-field col s6">
+<br>    <div class="row">
+        <div class="col s6">
             <label>Numero Telefonico</label>
-            <input type="text" placeholder="0056113368551 (ejemplo)" v-model="empresa.telefono" data-vv-as="Telefono de la empresa" name="empresa_telefono" v-validate="'required|numeric'"/>
+            <b-field >
+                <b-input placeholder="0056113368551 (ejemplo)" v-model="empresa.telefono" data-vv-as="Telefono de la empresa" name="empresa_telefono" v-validate="'required|numeric'"/>
+            </b-field>
             <span v-if="errors.has('empresa_telefono')"  class="red-text-error ">
                     {{ errors.first('empresa_telefono') }}
             </span>
         </div>
-
-        <div class="input-field col s6">
+        <div class=" col s6">
             <label>Email</label>
-            <input type="text" placeholder="correo@empresa.com (ejemplo)" v-model="empresa.email" v-validate="'required|email'" name="empresa_email" data-vv-as="Email de la empresa" name="empresa_email">
-            <i v-show="errors.has('email')" class="fa fa-warning"></i>
-
+            <b-field>
+            <b-input placeholder="correo@empresa.com (ejemplo)" v-model="empresa.email" v-validate="'required|email'" name="empresa_email" data-vv-as="Email de la empresa" name="empresa_email">
+            </b-field>
             <span v-if="errors.has('empresa_email')"  class="red-text-error">
                 {{ errors.first('empresa_email') }}
             </span>
-
         </div>
     </div>
+    <br>
+
     <div class="row">
-        <div class="input-field col s12">
+        <div class="col s12">
             <label for="direccion">Direccion</label>
-            <input type="text" placeholder="Edificio Seven, Oficina 01 , Calle 1 , Capital (ejemplo)" v-model="empresa.ubicacion" v-validate="{required:true, regex: /[a-zA-Z0-9 -,.()]$/}" data-vv-as="Direccion de la empresa" name="empresa_direccion"   />
+            <b-field>
+                <b-input  placeholder="Edificio Seven, Oficina 01 , Calle 1 , Capital (ejemplo)" v-model="empresa.ubicacion" v-validate="{required:true, regex: /[a-zA-Z0-9 -,.()]$/}" data-vv-as="Direccion de la empresa" name="empresa_direccion"   />
+            </b-field>
             <span v-if="errors.has('empresa_direccion')"  class="red-text-error">
                     {{ errors.first('empresa_direccion') }}
                 </span>
         </div>
     </div>
-        <!--EMPLEADOS -->
-        <h4>Empleados </h4>
-        <div v-for="(paciente, index) in empresa.pacientes_attributes">
-            <div v-if="paciente._destroy == '1'">
-                El paciente
-                <b>{{ paciente.primer_nombre }}</b> fue removido
-                <button v-on:click="undoRemove(index)" class="waves-effect waves-light btn btn-sm ">
-                    Deshacer</button>
-            </div>
-            <div v-else>
-                <label for="">Nombre </label>
-                <input type="text" v-model="paciente.primer_nombre" />
-                <button v-on:click="removePaciente(index)" class="waves-effect waves-light btn "> Borrar </button>
-            </div>
-            <hr>
-        </div>
-        <button v-on:click="addPaciente" class="waves-effect waves-light btn btn-sm "> Agregar </button>
+     <br>
+        <b-tabs type="is-toggle" expanded>
+            <b-tab-item label="Agregar Empleados">
+                    <div v-for="(paciente, index) in empresa.pacientes_attributes">
+                            <div v-if="paciente._destroy == '1'">
+                                El paciente
+                                <b>{{ paciente.primer_nombre }}</b> fue removido
+                                <button v-on:click="undoRemove(index)" class="waves-effect waves-light btn btn-sm ">
+                                    Deshacer</button>
+                            </div>
+                            <div v-else>
+                                <div class="row">
+                                    <button v-on:click="removePaciente(index)" class="btn-floating btn-large waves-effect waves-light red">        <i class="fa fa-minus" aria-hidden="true"></i>
+                                       borrar  </button>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s3">
+                                        <label for="">Primer nombre </label>
+                                        <input type="text" placeholder="Juan (ejemplo)" v-model= "paciente.primer_nombre" />
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <label for="">Segundo nombre </label>
+                                        <input type="text" placeholder="Andres (ejemplo)"   v-model= "paciente.segundo_nombre" />
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <label for="">Primer apellido </label>
+                                        <input type="text" placeholder="Gutierrez (ejemplo)" v-model= "paciente.primer_apellido" />
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <label for="">Segundo apellido </label>
+                                        <input type="text"placeholder="Gonzalez(ejemplo)"  v-model= "paciente.segundo_apellido" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s3">
+                                        <v-select :options="options"  v-model="paciente.tipo_identificacion" placeholder= "Tipo de documento">
+                                        </v-select>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <label for="">Numero de indentificacion </label>
+                                        <input type="text" v-model= "paciente.numero_identificacion"  placeholder="Numero de identificacion"/>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <v-select :options="['Femenino','Masculino','No especificado']"  v-model= "paciente.genero" placeholder="Genero">
+                                        </v-select>
+                                    </div>
+                                    <div class="input-field col s3">
+
+                                        <div id="calendario">
+                                                <datepicker v-model="paciente.fecha_nac" language="es" >
+                                                <label>Fecha de Nacimiento</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s3">
+                                        <label for="">Lugar nacimiento </label>
+                                        <input type="text" v-model= "paciente.lugar_nacimiento" placeholder="Lugar de nacimiento"/>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <label for="">Telefono </label>
+                                        <input type="text" v-model= "paciente.telefono" placeholder="Telefono"/>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <label for="Grupo de sangre"></label>
+                                        <input type="text" v-model= "paciente.grupo_sangre" placeholder="Grupo Sangre"/>
+
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <label for="">Edo. civil </label>
+                                        <input type="text" v-model= "paciente.edo_civil" placeholder="Edo Civil"/>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row">
+                                <button v-on:click="addPaciente" class="waves-effect waves-light btn btn-sm "> Agregar </button>
+                        </div>
+
+
+            </b-tab-item>
+            <b-tab-item label="Subir lote de pacientes"></b-tab-item>
+
+        </b-tabs>
+         <!--EMPLEADOS -->
         <button v-on:click="saveEmpresa" :disabled="errors.any()" class="waves-effect waves-light btn btn-sm "> Guardar </button>
 
         <% end %>
 
 
             <br />
+
+        </div>
+
+
