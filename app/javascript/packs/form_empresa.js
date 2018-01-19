@@ -78,20 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
           })
         } else{//edita una empresa existente
           this.$http.put(`/empresas/${this.id}`, {empresa: this.empresa}).then(response => {
-            this.addNotification("Empresa guardada exitosamente"),
-            window.location =`/empresas/${response.body.id}`
+              this.addNotification('Empresa guardada exitosamente'),
+                  window.location =`/empresas/${response.body.id}`
           },(response) =>{
-            this.errores = response.body
+              this.errores = response.body
             console.log(response)
           })
         }
         },
         existingEmpresa: function(){
-          return this.empresa.id != null
+          return this.empresa.id !== null
         },
         removePaciente: function(index){
           var paciente =  this.empresa.pacientes_attributes[index]
-          if (paciente.id == null) {
+          if (paciente.id === null) {
             this.empresa.pacientes_attributes.splice(index,1)
           } else{
             this.empresa.pacientes_attributes[index]._destroy = "1"

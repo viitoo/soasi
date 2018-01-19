@@ -5,7 +5,7 @@ class EmpresasController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def getjson
-    render json: Empresa.find_by_sql(['SELECT * FROM empresas WHERE nombre LIKE ? OR ruc LIKE ?', "%#{params[:nombre]}%", "%#{params[:ruc]}%"])
+    render = render json: Empresa.find_by_sql(['SELECT * FROM empresas WHERE nombre LIKE ? OR ruc LIKE ?', "%#{params[:nombre]}%", "%#{params[:ruc]}%"])
   end
 
   def index

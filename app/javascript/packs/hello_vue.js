@@ -9,7 +9,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     var element = document.getElementById("hello")
     if (element != null) { }
-    var app =  new Vue({
+    let app =  new Vue({
     el: element,
     data: {
       empresas: [],

@@ -8,6 +8,7 @@
         empresa: empresa.to_json(except: [:id, :created_at, :updated_at]),
         pacientes_attributes: empresa.pacientes.to_json(except: [:empresa_id, :created_at, :updated_at]),
      } do %>
+
         <div v-if="!Object.keys(errores).length == 0">
             <em> Han ocurrido algunos errores que evitan el guardado:</em>
         </div>
@@ -83,7 +84,7 @@
                             <div v-if="paciente._destroy == '1'">
                                 El paciente
                                 <b>{{ paciente.primer_nombre }}</b> fue removido
-                                <button v-on:click="undoRemove(index)" class="waves-effect waves-light btn btn-sm ">
+                <button v-on:click="undoRemove(index)" class="waves-effect waves-light btn btn-sm ">
                                     Deshacer</button>
                             </div>
                             <div v-else>
