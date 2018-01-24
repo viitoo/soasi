@@ -1,32 +1,91 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>SoasiFinal</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+<head>
+  <title>SoasiFinal</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application'  %>
+  <%= javascript_pack_tag "plantilla" %>
 
-<!--<link rel="stylesheet" href="https://unpkg.com/buefy/lib/buefy.min.css">
-<link rel="stylesheet" href="https://xaksis.github.io/vue-good-demos/static/css/app.9feadb1ed3d91ce6641af0a429e380c6.css">-->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
 
-  </head>
+<div id="plantilla">
+  <el-header >
+    <el-row>
+      <el-col :span="2"><%= image_tag "/images/logo.png"%></el-col>
+      <el-col :span="2" :offset="20">
+          <el-dropdown style="text-align: right; font-size: 40px; margin-right:0; margin-top:10">
+            <i class="el-icon-setting" style="margin-right: 0px;  color: #ff71a8; cursor:hand"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>configuracion</el-dropdown-item>
+              <el-dropdown-item>logs de actividades</el-dropdown-item>
+              <el-dropdown-item>cerrar sesion</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+      </el-col>
+    </el-row>
+  </el-header>
 
-  <body>
-      <%#= render "layouts/loader"%>
-      <%= render "layouts/top"%>
-      <div id="main">
-          <div class="wrapper">
-              <%= render "layouts/sidebar"%>
-              <section id="content">
-                <%= render "layouts/content"%>
-              </section>
-            <%#= render "layouts/footer" %>
-
+  <el-container>
+    <el-aside width="200px">
+      <el-row class="tac">
+        <el-col :span="24">
+          <div class="user-description">
           </div>
+          <el-menu
+                  default-active="2"
+                  class="el-menu-vertical-demo"
+                  @open="handleOpen"
+                  @close="handleClose">
+            <el-menu-item index="1">
+              <i class="el-icon-menu"></i>
+              <span>Dashboard</span>
+            </el-menu-item>
+            <el-submenu index="2">
+              <template slot="title">
+                <i class="el-icon-star-on"></i>
+                <span>Empresas</span>
+              </template>
+              <el-menu-item index="1-1">listado</el-menu-item>
+              <el-menu-item index="1-2">Empleados</el-menu-item>
+            </el-submenu>
+            <el-menu-item index="3">
+              <i class="el-icon-date"></i>
+              <span>Citas</span>
+            </el-menu-item>
+            <el-menu-item index="4">
+              <i class="el-icon-star-off"></i>
+              <span>Medicos</span>
+            </el-menu-item>
+            <el-menu-item index="5">
+              <i class="el-icon-printer"></i>
+              <span>Reportes</span>
+            </el-menu-item>
+          </el-menu>
+        </el-col>
+      </el-row>
+    </el-aside>
+    <el-main>
+      <el-row>
+        <div class="breadcrumb">
+          <el-breadcrumb separator="/"  >
+            <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+            <el-breadcrumb-item>promotion management</el-breadcrumb-item>
+          </el-breadcrumb>
         </div>
-
-  </body>
+      </el-row>
+      <el-row>
+        <el-col :span="24">
+          <div class="inner-main">
+            <div class="grid-content bg-white-container">
+              <div class="inner-main">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
+    </el-main>
+  </el-container>
+</div>
 </html>
-
+<!-- import JavaScript -->

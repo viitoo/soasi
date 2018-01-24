@@ -1697,7 +1697,7 @@ electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.27:
   version "1.3.27"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.27.tgz#78ecb8a399066187bb374eede35d9c70565a803d"
 
-element-ui@^2.0.11:
+element-ui@^2.0.11, element-ui@^2.0.7:
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/element-ui/-/element-ui-2.0.11.tgz#efc19d10270c13aa2b235f65bcb6ced3226550b8"
   dependencies:
@@ -5303,6 +5303,14 @@ vm-browserify@0.0.4:
 vue-axios@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/vue-axios/-/vue-axios-2.0.2.tgz#0fe5a69f1edb09a1cd6c4a7f88c74d2fb7fe1778"
+
+vue-data-tables@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/vue-data-tables/-/vue-data-tables-3.1.3.tgz#7115a6aa7a27f293e6dbaf60f6eeb922502f726e"
+  dependencies:
+    element-ui "^2.0.7"
+    lodash "^4.17.4"
+    vue "^2.5.2"
 
 vue-good-table@^1.17.0:
   version "1.17.1"

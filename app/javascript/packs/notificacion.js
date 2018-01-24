@@ -1,4 +1,4 @@
-import Vue from 'vue/dist/vue.esm'
+import Vue from 'vue/dist/vue.min'
 import VueResource from 'vue-resource'
 import Notificacion from '../notificacion.vue'
 Vue.use(VueResource)
