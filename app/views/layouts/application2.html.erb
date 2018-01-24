@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SoasiFinal</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application2' %>
+
+<!--<link rel="stylesheet" href="https://unpkg.com/buefy/lib/buefy.min.css">
+<link rel="stylesheet" href="https://xaksis.github.io/vue-good-demos/static/css/app.9feadb1ed3d91ce6641af0a429e380c6.css">-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  </head>
+
+  <body>
+      <%#= render "layouts/loader"%>
+      <%= render "layouts/top"%>
+      <div id="main">
+          <div class="wrapper">
+              <%= render "layouts/sidebar"%>
+              <section id="content">
+                <%= render "layouts/content"%>
+              </section>
+            <%#= render "layouts/footer" %>
+
+          </div>
+        </div>
+
+  </body>
+</html>
+
