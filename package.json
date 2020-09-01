@@ -9,7 +9,7 @@
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "buefy": "^0.6.2",
+    "buefy": "^0.7.2",
     "coffeescript": "1.12.7",
     "element-ui": "^2.0.11",
     "jquery": "^3.2.1",
